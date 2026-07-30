@@ -222,6 +222,18 @@
   }
   .cartbar:active{ transform:scale(.98); }
   .cartbar.hidden{ display:none; }
+
+  /* ── WHATSAPP FLOTANTE ────────────────────────────── */
+  .wa-float{
+    position:absolute; right:14px; bottom:94px; z-index:35;
+    width:48px; height:48px; border-radius:50%;
+    background:linear-gradient(135deg,#2fbf4a,var(--wa)); color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 12px 24px -6px rgba(37,166,62,.55); text-decoration:none;
+    transition:transform .15s;
+  }
+  .wa-float:active{ transform:scale(.92); }
+  .wa-float svg{ width:23px; height:23px; fill:#fff; }
   .cartbar-l{ display:flex; align-items:center; gap:10px; }
   .cartbar-badge{
     width:22px; height:22px; border-radius:50%; background:#fff; color:var(--brand);
@@ -378,6 +390,10 @@
 
       <!-- Barra de carrito flotante global (home/producto) -->
       <div class="cartbar hidden" id="cartbar-global"></div>
+
+      <a class="wa-float" id="wa-float" href="#" target="_blank" rel="noopener" aria-label="Chatea por WhatsApp">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.8 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.1.6.2.3.9 1.4 1.9 2.3 1.3 1.1 2.4 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.7.8 2 .9.3.2.5.2.6.3.1.2.1.9-.1 1.5Z"/></svg>
+      </a>
 
     </div>
   </div>
@@ -666,6 +682,10 @@ function buildWaLink(){
   msg += `\nTotal: ${fmt(cartTotal())}\n\nQuedo atento para confirmar entrega y forma de pago.`;
   document.getElementById('send-wa').href = `https://wa.me/${WEST_WHATSAPP}?text=${encodeURIComponent(msg)}`;
 }
+
+// ─── WHATSAPP FLOTANTE ──────────────────────────────────
+document.getElementById('wa-float').href =
+  `https://wa.me/${WEST_WHATSAPP}?text=${encodeURIComponent('Hola! Tengo una pregunta sobre West 24 Horas.')}`;
 
 // ─── INIT ──────────────────────────────────────────────
 renderHome();
