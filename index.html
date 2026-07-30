@@ -469,7 +469,7 @@ const CATEGORIES = [
     {id:'cenas', name:'Cenas'}, {id:'hamburguesas', name:'Hamburguesas'} ] },
   { id:'licores', name:'Licores', icon:'bottle', subcats:[
     {id:'cerveza', name:'Cerveza'}, {id:'aguardiente', name:'Aguardiente'},
-    {id:'ron', name:'Ron'}, {id:'whisky', name:'Whisky'} ] },
+    {id:'ron', name:'Ron'}, {id:'whisky', name:'Whisky'}, {id:'vino', name:'Vino'} ] },
   { id:'hipermercado', name:'Hipermercado', icon:'basket', subcats:[
     {id:'bebidas', name:'Bebidas'}, {id:'snacks', name:'Snacks'} ] },
   { id:'farmacia', name:'Farmacia', icon:'cross', subcats:[
@@ -489,6 +489,13 @@ const PRODUCTS = [
   {id:10, cat:'hipermercado', sub:'snacks', name:'Súper Ricas Papas Naturales 115gr', price:5000, img:'assets/img/papas.jpg', desc:'Paquete familiar, sabor natural.'},
   {id:11, cat:'farmacia', sub:'medicamentos', name:'Ibuprofeno x4', price:8000, img:'assets/img/ibuprofeno.jpg', desc:'Analgésico y antiinflamatorio, presentación x4 unidades.'},
   {id:12, cat:'farmacia', sub:'cuidado', name:'Sal de Frutas Lua', price:3500, img:'assets/img/salfrutas.jpg', desc:'Antiácido efervescente, unidad.'},
+  {id:13, cat:'licores', sub:'cerveza', name:'Poker Sixpack', price:16000, img:'assets/img/poker.jpg', desc:'Cerveza tipo lager 100% colombiana, 4.0% de alcohol. Six pack.'},
+  {id:14, cat:'licores', sub:'ron', name:'Ron Medellín 3 Años 750ml', price:48000, img:'assets/img/ronmedellin.jpg', desc:'Ron añejo de buen cuerpo e intenso aroma a madera y vainilla, color dorado claro.'},
+  {id:15, cat:'licores', sub:'whisky', name:'Chivas Regal 12 Años 750ml', price:122000, img:'assets/img/chivas.jpg', desc:'Mezcla de whiskies de malta y grano escoceses madurados 12 años; notas de miel, avellana y caramelo.'},
+  {id:16, cat:'licores', sub:'vino', name:'Casa del Rhin 750ml', price:15000, img:'assets/img/vino.jpg', desc:'Aperitivo dulce de cuerpo mediano, 10° de alcohol, origen colombiano.'},
+  {id:17, cat:'hipermercado', sub:'bebidas', name:'Manzana Postobón 1.5L', price:5000, img:'assets/img/manzanapostobon.jpg', desc:'Gaseosa carbonatada sabor fantasía a manzana.'},
+  {id:18, cat:'hipermercado', sub:'snacks', name:'Todo Rico Original 160gr', price:6000, img:'assets/img/todorico.png', desc:'Mezcla familiar de chicharrones, papas fritas y tajaditas.'},
+  {id:19, cat:'farmacia', sub:'medicamentos', name:'Buscapina x4', price:8000, img:'assets/img/buscapina.jpg', desc:'Antiespasmódico, presentación x4 unidades.'},
 ];
 
 const fmt = n => '$' + n.toLocaleString('es-CO');
