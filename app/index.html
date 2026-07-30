@@ -133,7 +133,9 @@
   .promo-title{ position:relative; font-size:18px; font-weight:800; max-width:72%; line-height:1.28; letter-spacing:-.01em; }
   .promo-sub{ position:relative; font-size:12.5px; color:rgba(255,255,255,.72); margin-top:7px; max-width:72%; line-height:1.5; }
 
-  .hscroll{ display:flex; gap:12px; overflow-x:auto; padding-bottom:4px; margin:0 -18px; padding-left:18px; padding-right:18px; }
+  .hscroll{ display:flex; gap:12px; overflow-x:auto; padding-bottom:4px; margin:0 -18px; padding-left:18px; padding-right:18px; cursor:grab; user-select:none; }
+  .hscroll.dragging{ cursor:grabbing; }
+  .hscroll.dragging .p-card{ pointer-events:none; }
   .hscroll::-webkit-scrollbar{ display:none; }
   .p-card{
     flex:0 0 128px; cursor:pointer; border:none; background:none; padding:0; text-align:left;
@@ -492,6 +494,25 @@ function renderHome(){
       <div class="p-price">${fmt(p.price)}</div>
     </button>`).join('');
   pop.querySelectorAll('[data-p]').forEach(el => el.addEventListener('click', () => openProduct(+el.dataset.p)));
+  enableDragScroll(pop);
+}
+
+// ─── DRAG TO SCROLL (carrusel) ──────────────────────────
+function enableDragScroll(el){
+  let isDown=false, startX=0, startScroll=0;
+  el.addEventListener('pointerdown', e => {
+    isDown=true; startX=e.clientX; startScroll=el.scrollLeft;
+    el.setPointerCapture(e.pointerId);
+  });
+  el.addEventListener('pointermove', e => {
+    if(!isDown) return;
+    const dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) el.classList.add('dragging');
+    el.scrollLeft = startScroll - dx;
+  });
+  const end = () => { isDown=false; setTimeout(() => el.classList.remove('dragging'), 0); };
+  el.addEventListener('pointerup', end);
+  el.addEventListener('pointercancel', end);
 }
 
 // ─── CATEGORÍA ─────────────────────────────────────────
